@@ -1,0 +1,107 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(#4c37c4 0%, #1a0844 100%);
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  color: #22223b;
+}
+
+.quotes-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  padding: 36px 28px 28px 28px;
+  margin: 24px 0;
+  color: #22223b;
+  transition: box-shadow 0.2s;
+}
+
+.quotes-card:hover {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.22);
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+h1 span{
+  color: aquamarine;
+}
+
+#quote-text {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: #3a3a3a;
+  margin-bottom: 18px;
+  padding: 0 8px;
+}
+
+#quote-author {
+  font-weight: 600;
+  font-style: italic;
+  color: #7b7b7b;
+  margin-bottom: 10px;
+  display: block;
+}
+button{
+  background-color: transparent;
+  border: none
+}
+
+i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #4f8cff;
+  color: #343437;
+  transition: color 0.1s;
+}
+
+i:hover {
+  color: #1e42f7;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1.5px solid #e0e0e0;
+  padding-top: 18px;
+  margin-top: 18px;
+}
+
+a {
+  color: aquamarine;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s;
+  display: block;
+}
+
+a:hover {
+transform: scale(1.2);  
+}
+#footer{
+  color: #fff;
+}

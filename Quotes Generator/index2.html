@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Quotes Generator</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <h1>Quotes <span>Generator</span></h1>
+
+      <section class="quotes-card">
+        <p id="quote-text">Click the button to generate a quote</p>
+        <div class="card-footer">
+          <div class="left">
+            <button id="generate-quote" aria-label="Generate Quote">
+              <i class="fa-solid fa-arrow-rotate-right"></i>
+            </button>
+            <a
+              href="https://x.com/vishalsde"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on Twitter"
+              style="display: inline-block"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </div>
+          <div class="right">
+            <p id="quote-author"></p>
+          </div>
+        </div>
+      </section>
+
+      <footer id="footer">
+        Made with ❤️ by
+        <a
+          href="https://github.com/sdevishal"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Vishal</a
+        >
+      </footer>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const generateBtn = document.getElementById("generate-quote");
+        const displayQuote = document.getElementById("quote-text");
+        const quoteAuthor = document.getElementById("quote-author");
+
+        fetch("https://dummyjson.com/quotes")
+          .then((res) => res.json())
+          .then((data) => {
+            let i = 0;
+            const quotes = data.quotes;
+
+            function showQuote(index) {
+              const quote = quotes[index];
+              displayQuote.textContent = quote.quote;
+              quoteAuthor.textContent = `— ${quote.author}`;
+            }
+
+            showQuote(i); // Show first quote
+
+            generateBtn.addEventListener("click", () => {
+              i = (i + 1) % quotes.length;
+              showQuote(i);
+            });
+          })
+          .catch((error) => {
+            displayQuote.textContent =
+              "Failed to load quotes. Please try again later.";
+            // console.error("Error fetching quotes:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

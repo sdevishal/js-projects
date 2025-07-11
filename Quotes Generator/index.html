@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Quotes Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quotes <span>Generator</span></h1>
+      <div class="quotes-card">
+        <p id="quote-text">Click the button to generate a quote</p>
+        <div class="card-footer">
+          <div class="left">
+            <i id="generate-quote" class="fa-solid fa-arrow-rotate-right"></i>
+            <a href="https://x.com/vishalsde" style="display: inline-block">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </div>
+          <div class="right">
+            <p id="quote-author"></p>
+          </div>
+        </div>
+      </div>
+      <p id="footer">
+        Made with ❤️ by <a href="https://github.com/sdevishal">Vishal</a>
+      </p>
+    </div>
+
+    <script>
+      const generateBtn = document.getElementById("generate-quote");
+      const displayQuote = document.getElementById("quote-text");
+      const quoteAuthor = document.getElementById("quote-author");
+
+      const url = "https://dummyjson.com/quotes";
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          let i = 0;
+          displayQuote.textContent = data.quotes[i].quote;
+          quoteAuthor.textContent = data.quotes[i].author;
+
+          generateBtn.addEventListener("click", function () {
+            // Reset index if it exceeds the number of quotes
+            i = i >= data.quotes.length ? 0 : i + 1;
+            i++;
+            displayQuote.textContent = data.quotes[i].quote;
+            quoteAuthor.textContent = data.quotes[i].author;
+          });
+        });
+    </script>
+  </body>
+</html>
