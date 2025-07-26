@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>EMI Calculator</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">EMI Calculator</h1>
+      <form class="calculator-card">
+        <div class="input-group">
+          <label for="">Loan Amount</label>
+          <input type="text" id="loan-amt" />
+        </div>
+
+        <div class="input-group">
+          <label for="">Interest Rate (in %)</label>
+          <input type="text" id="rate" />
+        </div>
+
+        <div class="input-group">
+          <label for="">Tenure</label>
+          <input type="text" id="duration" />
+        </div>
+
+        <button class="btn">Calculate EMI</button>
+      </form>
+      <result>
+        <div class="error"></div>
+        <div>EMI: <span class="show-emi">0</span></div>
+        <div>Total Interest: <span class="interest">0</span></div>
+        <div>Total Payment: <span class="total-amt">0</span></div>
+      </result>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
