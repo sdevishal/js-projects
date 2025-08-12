@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+body {
+  background: #6c3baa;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+.app {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  padding: 30px;
+}
+.app h1 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #6c3baa;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 30px;
+}
+.quiz {
+  padding: 20px 0;
+}
+.quiz h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #6c3baa;
+  margin-bottom: 10px;
+}
+.btn {
+  background: #fff;
+  color: #222;
+  padding: 10px;
+  margin: 10px 0;
+  font-weight: 500;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #222;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.1s ease;
+}
+.btn:hover:not([disabled]) {
+  background: #6c3baa;
+  color: #fff;
+}
+.btn:disabled {
+  cursor: not-allowed;
+}
+.next-btn {
+  background: #6c3baa;
+  color: #fff;
+  border: none;
+  padding: 6px 40px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+  font-size: 16px;
+  transition: background-color 0.1s ease;
+}
+.next-btn:active {
+  outline: none;
+  background: #492670;
+}
+
+.btn.correct,
+.btn.correct:focus,
+.btn.correct:active {
+  background-color: rgb(54, 196, 54) !important;
+  color: white;
+}
+
+.btn.incorrect,
+.btn.incorrect:focus,
+.btn.incorrect:active {
+  background-color: tomato !important;
+  color: white;
+}
