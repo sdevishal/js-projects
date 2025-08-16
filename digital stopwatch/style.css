@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins, "sans-serif";
+}
+.title {
+  font-weight: 500;
+  color: darkslategray;
+  text-align: center;
+}
+.container {
+  margin: 1rem;
+}
+.watch-container {
+  border: 2px solid darkslategray;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-block: 2rem;
+  width: fit-content;
+  margin-inline: auto;
+}
+.timer {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.timer span {
+  display: inline-block;
+  width: 2ch;
+}
+
+.controls {
+  width: fit-content;
+  margin-inline: auto;
+}
+.controls button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.1s filter;
+  text-align: center;
+  outline: none;
+  border: none;
+  transition: 0.1s transform;
+  -webkit-tap-highlight-color: transparent;
+}
+.controls button:hover {
+  filter: brightness(85%);
+}
+.controls button:active {
+  transform: scale(0.9);
+}
+.controls button + button {
+  margin-left: 0.5rem;
+}
+#start-btn {
+  background-color: rgb(55, 199, 12);
+}
+#stop-btn {
+  background-color: rgb(255, 59, 59);
+}
+#reset-btn {
+  background-color: rgb(36, 118, 241);
+}
+@media (max-width: 400px) {
+  .controls button:hover {
+    filter: brightness(100%);
+  }
+}
