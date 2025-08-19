@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <p class="title">Character Counter</p>
+      <section class="container">
+      <section class="textarea">
+        <textarea id="textbox" placeholder="Enter your text"></textarea>
+      </section>
+      <section class="count-data">
+        <div class="caharacter-div">
+          <p class="char-count">0</p>
+          <p>Characters</p>
+        </div>
+        <div class="caharacter-div">
+          <p class="word-count">0</p>
+          <p>Words</p>
+        </div>
+      </section>
+    </section>
+    </main>
+
+    <script>
+      const textbox = document.querySelector("#textbox");
+      const charCount = document.querySelector(".char-count");
+      const wordCount = document.querySelector(".word-count");
+      let text = "";
+      textbox.addEventListener("input", (e) => {
+        text = e.target.value;
+        const char = text.length;
+        charCount.textContent = char;
+        //word counter
+        const word = text.split(" ");
+        const finalWord = word.filter((elem) => elem != "");
+        console.log("word: " + finalWord);
+        wordCount.textContent = finalWord.length;
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
