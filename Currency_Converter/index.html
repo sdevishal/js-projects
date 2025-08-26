@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- title -->
+    <title>Currrency Converter</title>
+  </head>
+  <body>
+    <header>
+      <h1>Currrency Converter</h1>
+      <p>Check live foreign currency exchange rates</p>
+    </header>
+    <main class="container">
+      <div class="converter-card">
+        <div class="input-container">
+          <div class="input-group amount-group">
+            <label for="Amount">Amount</label>
+            <input type="text" id="amount" autocomplete='off'/>
+          </div>
+          <div class="input-group from-currency-group">
+            <label for="From">From</label>
+            <select name="" id="fromCurrency">
+                   <!-- <option value="h1">USD</option> -->
+            </select>
+          </div>
+          <div class="input-group to-currency-group">
+            <label for="To">To</label>
+            <select name="" id="toCurrency">
+                <!-- <option value="h1">INR</option> -->
+            </select>
+            <div class="exchange-icon">
+              <div class="icon-wrapper">
+                <i
+                  class="fa-solid fa-arrow-right-arrow-left fa-xl fa-rotate-90"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="show-result">
+            <!-- conversion Rate shown to be here -->
+        </div>
+
+        <div class="btn-group">
+          <button class="btn">Convert</button>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
