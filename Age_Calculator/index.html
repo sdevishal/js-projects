@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h3>Date Of Birth Calculator</h3>
+      <input type="date" name="" id="input-dob" />
+      <button id="btn">Calculate</button>
+      <p id="answer"></p>
+    </div>
+    <script>
+      function calculateAge() {
+        const btn = document.querySelector("#btn");
+        const inputDOB = document.querySelector("#input-dob");
+        const answer = document.querySelector("#answer");
+
+        btn.addEventListener("click", () => {
+          //if empty, ask user to enter date
+          if (!inputDOB.value) return alert("Pls Enter a Date");
+
+          //user DOB data
+          const [birthYear, birthMonth, birthDate] = inputDOB.value
+            .split("-")
+            .map((elem) => Number(elem));
+
+          //today Date object
+          const today = new Date();
+          let todayDate = today.getDate();
+          let todayMonth = today.getMonth() + 1;
+          let todayYear = today.getFullYear();
+
+          let dayDiff, monthDiff, yearDiff, daysInPrevMonth;
+          let daysInMonth = (year, month) => new Date(year, month, 0).getDate();
+
+          //calculate days diffrence
+          if (todayDate >= birthDate) {
+            dayDiff = todayDate - birthDate;
+          } else {
+            todayMonth--;
+            daysInPrevMonth = daysInMonth(todayYear, todayMonth);
+            dayDiff = todayDate + daysInPrevMonth - birthDate;
+          }
+          //calculate months diffrence
+          if (todayMonth >= birthMonth) {
+            monthDiff = todayMonth - birthMonth;
+          } else {
+            todayYear--;
+            monthDiff = todayMonth + 12 - birthMonth;
+          }
+          //calculate years diffrence
+          yearDiff = todayYear - birthYear;
+          //show user Age
+          answer.textContent = `You are ${yearDiff} years, ${monthDiff} months and ${dayDiff} days old !`;
+        });
+      }
+      calculateAge();
+    </script>
+  </body>
+</html>
