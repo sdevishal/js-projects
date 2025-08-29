@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h3>BMI Calculator</h3>
+
+      <section class="weight-div">
+        <input type="number" name="" id="weight" placeholder="Enter weight" />
+        Kg
+      </section>
+      <section class="height-div">
+        <input type="number" name="" id="height" placeholder="Enter height" />
+        cm
+      </section>
+      <p class="error">Pls fill all the details !</p>
+
+      <button id="btn">Calculate</button>
+      <section class="answer-div">
+        <p id="answer"></p>
+        <p id="category"></p>
+      </section>
+    </main>
+    <script>
+      const height = document.querySelector("#height");
+      const weight = document.querySelector("#weight");
+      const answer = document.querySelector("#answer");
+      const btn = document.querySelector("#btn");
+      const allInput = document.querySelectorAll("input");
+      const error = document.querySelector(".error");
+      const category = document.querySelector("#category");
+      
+      //Button click handler
+      btn.addEventListener("click", () => {
+        const bmi = (
+          Number(weight.value) / Math.pow(Number(height.value) / 100, 2)
+        ).toFixed(1);
+
+        //category logic
+        answer.textContent = "BMI : " + bmi;
+        if (bmi < 18.5) {
+          category.textContent = "(Underweight)";
+        } else if (bmi >= 18.5 && bmi < 25) {
+          category.textContent = "(Normal weight) ";
+        } else if (bmi >= 25 && bmi < 30) {
+          category.textContent = "(Overweight)";
+        } else {
+          category.textContent = "(Obesity)";
+        }
+      });
+      
+      //Handle click on Enter
+      allInput.forEach((input) => {
+        input.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            //check if any input field is empty
+            let allFilled = true;
+            allInput.forEach((input) => {
+              if (!input.value.trim()) {
+                allFilled = false;
+              }
+            });
+            if (!allFilled) {
+              error.classList.add("active");
+              // Optionally, remove the class after a delay
+              setTimeout(() => {
+                error.classList.remove("active");
+              }, 3000);
+            } else {
+              e.preventDefault();
+              btn.click();
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
