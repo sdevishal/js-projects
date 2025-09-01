@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="slider">
+        <!-- 1st-carousel -->
+        <div class="carousel">
+          <img src="./images/1.jpg" alt="" srcset="" />
+          <label>Design</label>
+          <p class="heading">1 Lorem ipsum dolor sit amet consectetur.</p>
+          <p class="para">
+            Lorem ipsum dolor sit amet elit. Facere adipisci eius sunt unde
+            dignissimos cumque! Lorem, ipsum. Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+        <!-- next-carousel -->
+        <div class="carousel">
+          <img src="./images/1.jpg" alt="" srcset="" />
+          <label>Design</label>
+          <p class="heading">2 Lorem ipsum dolor sit amet consectetur.</p>
+          <p class="para">
+            Lorem ipsum dolor sit amet elit. Facere adipisci eius sunt unde
+            dignissimos cumque! Lorem, ipsum. Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+        <!-- next-carousel -->
+        <div class="carousel">
+          <img src="./images/1.jpg" alt="" srcset="" />
+          <label>Design</label>
+          <p class="heading">3 Lorem ipsum dolor sit amet consectetur.</p>
+          <p class="para">
+            Lorem ipsum dolor sit amet elit. Facere adipisci eius sunt unde
+            dignissimos cumque! Lorem, ipsum. Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+        <!-- next-carousel -->
+        <div class="carousel">
+          <img src="./images/1.jpg" alt="" srcset="" />
+          <label>Design</label>
+          <p class="heading">4 Lorem ipsum dolor sit amet consectetur.</p>
+          <p class="para">
+            Lorem ipsum dolor sit amet elit. Facere adipisci eius sunt unde
+            dignissimos cumque! Lorem, ipsum. Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+        <!-- next-carousel -->
+        <div class="carousel">
+          <img src="./images/1.jpg" alt="" srcset="" />
+          <label>Design</label>
+          <p class="heading">5 Lorem ipsum dolor sit amet consectetur.</p>
+          <p class="para">
+            Lorem ipsum dolor sit amet elit. Facere adipisci eius sunt unde
+            dignissimos cumque! Lorem, ipsum. Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+        <!-- next-carousel -->
+        <div class="carousel">
+          <img src="./images/1.jpg" alt="" srcset="" />
+          <label>Design</label>
+          <p class="heading">6 Lorem ipsum dolor sit amet consectetur.</p>
+          <p class="para">
+            Lorem ipsum dolor sit amet elit. Facere adipisci eius sunt unde
+            dignissimos cumque! Lorem, ipsum. Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+        <!-- next-carousel -->
+        <div class="carousel">
+          <img src="./images/1.jpg" alt="" srcset="" />
+          <label>Design</label>
+          <p class="heading">7 Lorem ipsum dolor sit amet consectetur.</p>
+          <p class="para">
+            Lorem ipsum dolor sit amet elit. Facere adipisci eius sunt unde
+            dignissimos cumque! Lorem, ipsum. Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+      </div>
+      <!-- button-control -->
+      <div class="btn-control">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+      </div>
+    </main>
+    <script>
+      const allCarousel = document.querySelectorAll(".carousel");
+      const slider = document.querySelector(".slider");
+      const prevBtn = document.getElementById("prev");
+      const nextBtn = document.getElementById("next");
+
+      let index = 0;
+
+      function getVisibleCards() {
+        if (window.innerWidth <= 580) return 1; // Mobile
+        if (window.innerWidth <= 845) return 2; // Tablet
+        return 3; // Desktop
+      }
+
+      function updateSliderPosition() {
+        const cardWidth = allCarousel[0].offsetWidth;
+        const gap = parseInt(getComputedStyle(slider).gap);
+        const totalShift = index * (cardWidth + gap);
+        slider.style.transform = `translateX(-${totalShift}px)`;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        if (index === 0) return;
+        index--;
+        updateSliderPosition();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const visibleCards = getVisibleCards();
+        if (index === allCarousel.length - visibleCards) return;
+        console.log(index);
+        index++;
+        updateSliderPosition();
+      });
+
+      window.addEventListener("resize", () => {
+        const visibleCards = getVisibleCards();
+        const maxIndex = allCarousel.length - visibleCards;
+
+        if (index > maxIndex) {
+          index = maxIndex < 0 ? 0 : maxIndex;
+        }
+
+        updateSliderPosition();
+      });
+    </script>
+  </body>
+</html>
