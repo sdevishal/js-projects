@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <main class="app">
+        <h1>Expense Tracker</h1>
+        <div class="data-card">
+            <!-- Balance -->
+            <div class="balance">
+                <h2>Total Balance</h2>
+                <p id="display-balance">$0.00</h2>
+            </div>
+
+            <!-- Income & Expense -->
+            <div class="summary">
+                <div class="income">
+                    <h2>Income</>
+                        <p id="display-income">+$0.00</p>
+                </div>
+                <div class="expense">
+                    <h2>Expense</h2>
+                    <p id="display-expense">-$0.00</p>
+                </div>
+            </div>
+        </div>
+        <!-- Transaction List -->
+        <h3>History</h3>
+        <ul class="txns-history" id="">
+            <li class="minus">Bought Coffee <span>- $5</span></li>
+            <li class="plus">Freelance Work <span>+ $200</span></li>
+        </ul>
+
+        <!-- Add Transaction -->
+        <h3>Add Transaction</h3>
+        <form id="form">
+            <div class="tab-btn-group">
+                <button class="tab-btn active" data-target="form-expense">EXPENSE</button>
+                <button class="tab-btn" data-target="form-income">INCOME</button>
+            </div>
+            <!-- EXPENSE SECTION -->
+            <div class="content-panel active" id="form-expense">
+                <div class="expense-header">
+                    <h3>EXPENSE</h3>
+                    <label for="text" class="expense-label">Name</label>
+                    <input type="text" id="expense-source" autocomplete="off"/>
+                </div>
+                <div class="expense-details">
+                    <div class="expense-amount">
+                        <label for="amount" class="expense-label">Amount</label>
+                        <input type="number" id="expense-amt" class="expense-input" />
+                    </div>
+                    <div class="expense-date">
+                        <label for="date" class="expense-label">DATE</label>
+                        <input type="date" id="date" class="expense-input">
+                    </div>
+                </div>
+            </div>
+            <!-- INCOME SECTION -->
+            <div class="content-panel" id="form-income">
+                <div class="income-header">
+                    <h3>EXPENSE</h3>
+                    <label for="text" class="income-label">Name</label>
+                    <input type="text" id="income-source" autocomplete="off" />
+                </div>
+                <div class="income-details">
+                    <div class="income-amount">
+                        <label for="amount" class="income-label">Amount</label>
+                        <input type="number" id="income-amt" class="income-input" />
+                    </div>
+                    <div class="income-date">
+                        <label for="date" class="income-label">DATE</label>
+                        <input type="date" id="date" class="income-input">
+                    </div>
+                </div>
+            </div>
+            <div class="error-msg"></div>
+            <button class="submit-btn">SUBMIT</button>
+        </form>
+    </main>
+    <script src="./app.js"></script>
+</body>
+
+</html>
